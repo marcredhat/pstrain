@@ -4,4 +4,5 @@ networking:
   disableDefaultCNI: true
 featureGates:
  EphemeralContainers: true
- 
+nodes:
+- role: control-plane
