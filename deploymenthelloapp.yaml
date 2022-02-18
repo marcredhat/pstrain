@@ -4,8 +4,8 @@ metadata:
   annotations:
     deployment.kubernetes.io/revision: "1"
   labels:
-    app: nginx-web
-  name: nginx-web
+    app: helloapp
+  name: helloapp
   namespace: default
 spec:
   progressDeadlineSeconds: 600
@@ -13,7 +13,7 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: nginx-web
+      app: helloapp
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -28,7 +28,7 @@ spec:
       containers:
       - image: gcr.io/google-samples/hello-app:1.0
         imagePullPolicy: IfNotPresent
-        name: nginx
+        name: helloapp
         ports:
         - containerPort: 8080
           protocol: TCP
