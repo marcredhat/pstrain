@@ -23,7 +23,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        app: nginx-web
+        app: helloapp
     spec:
       containers:
       - image: gcr.io/google-samples/hello-app:1.0
