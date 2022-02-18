@@ -12,5 +12,5 @@ spec:
             name: servicehelloapp
             port:
               number: 8080
-        path: /ss
+        path: /helloapp
         pathType: Prefix
