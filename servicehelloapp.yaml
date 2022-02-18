@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: serviceforstatefulset
+  name: servicehelloapp
   namespace: default
 spec:
   ipFamilies:
@@ -11,4 +11,4 @@ spec:
   - port: 80
     targetPort: 8080
   selector:
-    app: nginx-web
+    app: helloapp
