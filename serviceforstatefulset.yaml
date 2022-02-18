@@ -1,14 +1,24 @@
 ---
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
   name: serviceforstatefulset
+  namespace: default
 spec:
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
   selector:
     app: nginx
-  ports:
-  # Default port used by the image
-  - port: 80
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
+~
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
