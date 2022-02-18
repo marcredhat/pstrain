@@ -15,4 +15,4 @@ spec:
           service:
             name: simple-stateful-set-2
             port:
-              number: 80
+              number: 8080
