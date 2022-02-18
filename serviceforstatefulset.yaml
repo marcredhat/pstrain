@@ -1,13 +1,28 @@
-apiVersion: v1
+---
 kind: Service
+apiVersion: v1
 metadata:
-  name: simple-stateful-set-0
+  name: serviceforstatefulset
 spec:
-  type: LoadBalancer
-  externalTrafficPolicy: Local
   selector:
-    statefulset.kubernetes.io/pod-name: simple-stateful-set-0
+    app: nginx
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 80
+  # Default port used by the image
+  - port: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: marc-statefulset-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: "/ss"
+        backend:
+          service:
+            name: serviceforstatefulset
+            port:
+              number: 80
+---
